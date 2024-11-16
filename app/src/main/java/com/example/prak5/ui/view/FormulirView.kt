@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import org.w3c.dom.Text
 
 
 @Composable
@@ -118,6 +119,17 @@ fun FormulirView(
                 .padding(5.dp),
             label = { Text("Alamat")},
             placeholder = { Text("Masukkan Alamat Anda")}
+        )
+
+        TextField(
+            value = nim,
+            onValueChange = { nim = it},
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(5.dp),
+            label = { Text ("NIM")},
+            placeholder = {Text("Masukkan NIM anda")},
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
         )
 
 
