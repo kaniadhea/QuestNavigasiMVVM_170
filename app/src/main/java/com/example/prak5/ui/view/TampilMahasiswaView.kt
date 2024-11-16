@@ -25,7 +25,7 @@ fun TampilMahasiswaView(
     Column (modifier = Modifier.fillMaxSize().padding(16.dp)){
 
         Button(onClick = {navController.popBackStack()}) {
-
+            Text("Kembali")
         }
         Spacer(modifier = Modifier.height(16.dp))
 
