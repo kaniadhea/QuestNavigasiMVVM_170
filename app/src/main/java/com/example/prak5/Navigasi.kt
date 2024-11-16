@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.prak5.model.DataJK
+import com.example.prak5.model.mahasiswa
 import com.example.prak5.ui.view.FormulirView
 import com.example.prak5.ui.view.TampilMahasiswaView
 import com.example.prak5.ui.viewmodel.MahasiswaViewModel
@@ -39,11 +40,11 @@ fun Navigasi(
             composable(route = Halaman.Form.name){
                 val konteks = LocalContext.current
                 FormulirView(
-                    pilihanJk = DataJK.isiJK.map {
-                        isi -> konteks.resources.getString(isi)
+                    pilihanJk = DataJK.isiJK.map { isi ->
+                        konteks.resources.getString(isi)
                     },
-                    onClickButton = {
-                        viewModel.saveDataMahasiswa(it)
+                    onClickButton = { listData ->
+                        viewModel.saveDataMahasiswa(listData)
                         navHost.navigate(Halaman.Data.name)
                     }
 
@@ -51,9 +52,13 @@ fun Navigasi(
             }
             composable(route = Halaman.Data.name){
                 TampilMahasiswaView(
-                    mhs = uiState
+                    mhs = uiState,
+                    navController = navHost
+
                 )
             }
         }
     }
 }
+
+

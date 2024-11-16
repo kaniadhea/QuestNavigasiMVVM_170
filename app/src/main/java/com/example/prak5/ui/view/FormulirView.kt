@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.foundation.text.input.InputTransformation.Companion.keyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -29,18 +30,17 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun FormulirView(
-
     modifier: Modifier = Modifier,
     pilihanJk: List<String>,
-    onClickButton: (MutableList<String>) ->Unit
-
+    onClickButton: (MutableList<String>) ->Unit,
     ) {
     var nama by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var noHp by remember { mutableStateOf("") }
     var alamat by remember { mutableStateOf("") }
     var jenisK by remember { mutableStateOf("") }
-    var listData: MutableList<String> = mutableListOf(nama , jenisK, alamat)
+    var nim by remember { mutableStateOf("") } //nambahkan nim
+    var listData: MutableList<String> = mutableListOf(nama , jenisK, alamat,email,noHp,nim)
 
 
 
@@ -69,7 +69,7 @@ fun FormulirView(
                 Text("Masukkan Nama Anda")
             }
         )
-        Row {
+        Row(modifier = Modifier.fillMaxWidth()) {
             pilihanJk.forEach { selectedJK ->
                 Row (verticalAlignment = Alignment.CenterVertically) {
                     RadioButton(selected = jenisK == selectedJK,
@@ -123,6 +123,23 @@ fun FormulirView(
             }
 
         )
+        TextField(
+            value = nim,
+            onValueChange = { nim = it },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(5.dp),
+            label = {
+                Text("NIM")
+            },
+            placeholder = {
+                Text("Masukkan NIM Anda")
+            },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number)
+
+        )
+
+
         Button(onClick = {
             onClickButton(listData)
         }, modifier = Modifier.padding(vertical = 10.dp)){
