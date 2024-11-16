@@ -125,7 +125,7 @@ fun FormulirView(
             value = nim,
             onValueChange = { nim = it},
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
                 .padding(5.dp),
             label = { Text ("NIM")},
             placeholder = {Text("Masukkan NIM anda")},
