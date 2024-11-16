@@ -20,11 +20,12 @@ import com.example.prak5.model.mahasiswa
 fun TampilMahasiswaView(
     mhs: mahasiswa,
     navController: NavHostController
+
 ) {
     Column (modifier = Modifier.fillMaxSize().padding(16.dp)){
 
         Button(onClick = {navController.popBackStack()}) {
-            Text("Kembali")
+
         }
         Spacer(modifier = Modifier.height(16.dp))
 
