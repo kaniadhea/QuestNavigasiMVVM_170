@@ -25,7 +25,7 @@ fun TampilMahasiswaView(
     Column (modifier = Modifier.fillMaxSize().padding(16.dp)){
 
         Button(onClick = {navController.popBackStack()}) {
-            Text("Kembali")
+            Text("Kembali") //button kembali
         }
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -37,10 +37,7 @@ fun TampilMahasiswaView(
             judul = "Gender",
             isinya = mhs.gender
         )
-        TampilData(
-            judul = "Alamat",
-            isinya = mhs.alamat
-        )
+
         TampilData(
             judul = "Email",
             isinya = mhs.email
@@ -50,11 +47,15 @@ fun TampilMahasiswaView(
             isinya = mhs.noHP
         )
         TampilData(
-            judul = "NIM",
-            isinya = mhs.nim
+            judul = "Alamat",
+            isinya = mhs.alamat
+        )
+        TampilData(
+
         )
 
-        Spacer(modifier = Modifier.height(16.dp))
+
+
     }
 }
 
